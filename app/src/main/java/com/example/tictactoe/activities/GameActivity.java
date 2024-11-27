@@ -43,12 +43,12 @@ public class GameActivity extends AppCompatActivity {
         BoardGameAdapter boardGameAdapter = new BoardGameAdapter(
                 GameActivity.this, new GameSquareList().getAllSquares());
         gameBoard.setAdapter(boardGameAdapter);
-        gameBoard.setOnClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                GameSquare square = (GameSquare) parent.getItemAtPosition(position);
-            }
-        })
+//        gameBoard.setOnClickListener(new AdapterView.OnItemClickListener(){
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                GameSquare square = (GameSquare) parent.getItemAtPosition(position);
+//            }
+//        })
     }
 
     private void createBoardGameTab() {

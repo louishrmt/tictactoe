@@ -8,6 +8,7 @@
     <ImageView
         android:id="@+id/ivSquareMark"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/baseline_adjust_24"/>
 
 </androidx.cardview.widget.CardView>
