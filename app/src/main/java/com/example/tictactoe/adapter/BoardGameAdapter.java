@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -16,36 +17,46 @@ import com.example.tictactoe.model.GameSquareList;
 
 import java.util.ArrayList;
 
-public class BoardGameAdapter extends ArrayAdapter<GameSquareList> {
+public class BoardGameAdapter extends BaseAdapter {
 
-    public BoardGameAdapter(@NonNull Context context, ArrayList<GameSquare> allSquares) {
-        super(context, 0);
+    Context context;
+    ArrayList<GameSquare> gameSquareList;
+
+    LayoutInflater inflater;
+
+    public BoardGameAdapter(Context context, ArrayList<GameSquare> gameSquareList) {
+        this.context = context;
+        this.gameSquareList = gameSquareList;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        HolderView holderView;
-
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.game_square_item, null);
-            holderView = new HolderView(convertView);
-            convertView.setTag(holderView);
-        }
-        else{
-            holderView = (HolderView)convertView.getTag();
-        }
-
-        GameSquareList square = getItem(position);
-
-        return super.getView(position, convertView, parent);
+    public int getCount() {
+        return gameSquareList.size();
     }
 
-    private static class HolderView{
-        private final ImageView mark;
+    @Override
+    public Object getItem(int position) {
+        return null;
+    }
 
-        private HolderView(View view) {
-            this.mark = view.findViewById(R.id.ivSquareMark);
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        if(inflater == null){
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
+
+        if (convertView == null){
+            convertView = inflater.inflate(R.layout.game_square_item, null);
+        }
+
+        ImageView mark = convertView.findViewById(R.id.ivSquareMark);
+
+        return convertView;
     }
 }

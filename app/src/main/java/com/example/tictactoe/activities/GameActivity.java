@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridLayout;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.tictactoe.R;
 import com.example.tictactoe.adapter.BoardGameAdapter;
+import com.example.tictactoe.databinding.ActivityGameBinding;
 import com.example.tictactoe.model.GameSquare;
 import com.example.tictactoe.model.GameSquareList;
 
@@ -20,17 +22,18 @@ import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
 
+    ActivityGameBinding binding;
     private int mSize = MATRIX_SIZE;
     private GridView gameBoard;
     private ArrayList<Integer> boardGameTab = new ArrayList<Integer>();
-
     private ArrayList<int[]> winningCombination = new ArrayList<int[]>();
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        binding = ActivityGameBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         createGameBoard();
 
@@ -39,16 +42,20 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void createGameBoard() {
+
         gameBoard = findViewById(R.id.gvGameBoard);
-        BoardGameAdapter boardGameAdapter = new BoardGameAdapter(
-                GameActivity.this, new GameSquareList().getAllSquares());
+
+        BoardGameAdapter boardGameAdapter = new BoardGameAdapter(GameActivity.this, new GameSquareList().getAllSquares());
         gameBoard.setAdapter(boardGameAdapter);
-//        gameBoard.setOnClickListener(new AdapterView.OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                GameSquare square = (GameSquare) parent.getItemAtPosition(position);
-//            }
-//        })
+
+        binding.gvGameBoard.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Toast.makeText(getApplicationContext(), "Clicked on "+position, Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void createBoardGameTab() {
