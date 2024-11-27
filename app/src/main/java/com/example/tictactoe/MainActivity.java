@@ -1,18 +1,17 @@
 package com.example.tictactoe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.tictactoe.activities.GameActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnStartGame, btnSettings;
+    private Button btnStartGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,19 +19,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnStartGame = findViewById(R.id.btnStartGame);
-        btnSettings = findViewById(R.id.btnSettings);
 
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startGame();
-            }
-        });
-
-        btnSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToSettings();
             }
         });
 
@@ -43,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
         // TODO Choix du pion
 
         // TODO direction activite jeu
+        Intent gameActivity = new Intent(getApplicationContext(), GameActivity.class);
+        startActivity(gameActivity);
     }
 
-    private void goToSettings() {
-        //TODO lancer l'activite settings
-    }
 }

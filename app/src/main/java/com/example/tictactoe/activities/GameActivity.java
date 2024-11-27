@@ -1,38 +1,64 @@
 package com.example.tictactoe.activities;
 
 
-import static com.example.tictactoe.AppConstants.MATRIX_SIZE;
+import static com.example.tictactoe.model.AppConstants.MATRIX_SIZE;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridLayout;
+import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.tictactoe.R;
+import com.example.tictactoe.adapter.BoardGameAdapter;
+import com.example.tictactoe.model.GameSquare;
+import com.example.tictactoe.model.GameSquareList;
 
 import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
 
-    private int matrixSize = MATRIX_SIZE;
-    private GridLayout gameBoard;
+    private int mSize = MATRIX_SIZE;
+    private GridView gameBoard;
+    private ArrayList<Integer> boardGameTab = new ArrayList<Integer>();
 
     private ArrayList<int[]> winningCombination = new ArrayList<int[]>();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        gameBoard = findViewById(R.id.glGameBoard);
+        createGameBoard();
 
-        gameBoard.setColumnCount(matrixSize);
-        gameBoard.setRowCount(matrixSize);
-
+        createBoardGameTab();
         defineWinningCombination();
     }
 
+    private void createGameBoard() {
+        gameBoard = findViewById(R.id.gvGameBoard);
+        BoardGameAdapter boardGameAdapter = new BoardGameAdapter(
+                GameActivity.this, new GameSquareList().getAllSquares());
+        gameBoard.setAdapter(boardGameAdapter);
+        gameBoard.setOnClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                GameSquare square = (GameSquare) parent.getItemAtPosition(position);
+            }
+        })
+    }
+
+    private void createBoardGameTab() {
+        int totalCase = mSize*mSize;
+        for(int i = 0; i < totalCase; i++){
+            boardGameTab.add(i);
+        }
+    }
+
     private void defineWinningCombination() {
-        int mSize = MATRIX_SIZE;
 
         // diagonal combination
         int[] firstDiagCombination = new int[mSize];
