@@ -15,4 +15,5 @@
     <string name="who_s_turn_is_it">À qui le tour ?</string>
     <string name="you_can_t_pick_this_square">Tu ne peux pas choisir cette case</string>
     <string name="draw">Egalité</string>
+    <string name="choose_your_color">Choisissez votre couleur</string>
 </resources>

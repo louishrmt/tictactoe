@@ -14,4 +14,5 @@
     <string name="who_s_turn_is_it">Who\'s turn is it ?</string>
     <string name="you_can_t_pick_this_square">You can\'t pick this square</string>
     <string name="draw">Draw</string>
+    <string name="choose_your_color">Choose your color</string>
 </resources>
