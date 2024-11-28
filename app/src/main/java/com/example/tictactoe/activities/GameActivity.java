@@ -244,7 +244,13 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 // bot pick a random number
                 Random randomizer = new Random();
-                int randomNumber = randomizer.ints(0, boardGameTab.size()-1).findFirst().getAsInt();
+                int randomNumber;
+                if(boardGameTab.size()>1){
+                    randomNumber = randomizer.ints(0, boardGameTab.size()-1).findFirst().getAsInt();
+                }
+                else
+                    randomNumber = 0;
+
                 int pickedSquare = boardGameTab.get(randomNumber);
                 botSquares.add(pickedSquare);
 
