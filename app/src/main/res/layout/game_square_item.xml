@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:backgroundTint="@color/dark_gray"
-    android:elevation="2dp"
+    android:elevation="8dp"
+    app:cardMaxElevation="8dp"
     app:cardCornerRadius="32dp"
-    android:padding="8dp">
+    app:cardPreventCornerOverlap="true"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/ivSquare"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/square_default"
+        />
 
 </androidx.cardview.widget.CardView>
