@@ -6,4 +6,7 @@
     <color name="dark_gray">#2E2E2E</color>
     <color name="easiOrange">#FFA086</color>
     <color name="easiTeal">#60CAD8</color>
+    <color name="easiBG">#120C3A</color>
+    <color name="easiBGDark">#080423</color>
+
 </resources>
