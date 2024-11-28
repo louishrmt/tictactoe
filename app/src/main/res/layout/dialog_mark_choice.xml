@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:text="Choose your mark"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvOrangeMark"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="2dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="32dp"
+            app:cardBackgroundColor="@color/easiOrange"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvTealMark"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="2dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="32dp"
+            app:cardBackgroundColor="@color/easiTeal"/>
+
+    </LinearLayout>
+
+</LinearLayout>

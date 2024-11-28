@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray">
-
-    <ImageView
-        android:id="@+id/ivSquareMark"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/baseline_adjust_24"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/dark_gray"
+    android:elevation="2dp"
+    app:cardCornerRadius="32dp"
+    android:padding="8dp">
 
 </androidx.cardview.widget.CardView>

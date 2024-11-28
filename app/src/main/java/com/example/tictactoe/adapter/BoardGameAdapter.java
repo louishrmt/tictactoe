@@ -55,8 +55,6 @@ public class BoardGameAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.game_square_item, null);
         }
 
-        ImageView mark = convertView.findViewById(R.id.ivSquareMark);
-
         return convertView;
     }
 }
