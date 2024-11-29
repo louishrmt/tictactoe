@@ -282,21 +282,23 @@ public class GameActivity extends AppCompatActivity {
 
                     defeatDialog.show();
                 }
-                if(count == mSize*mSize){
-                    Dialog drawDialog = new Dialog(GameActivity.this);
-                    drawDialog.setContentView(R.layout.dialog_draw);
-                    drawDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    drawDialog.setCancelable(false);
+                else {
+                    if (count == mSize * mSize) {
+                        Dialog drawDialog = new Dialog(GameActivity.this);
+                        drawDialog.setContentView(R.layout.dialog_draw);
+                        drawDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        drawDialog.setCancelable(false);
 
-                    Button btnRestart = drawDialog.findViewById(R.id.btnReplayDraw);
-                    btnRestart.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            restartGame();
-                        }
-                    });
+                        Button btnRestart = drawDialog.findViewById(R.id.btnReplayDraw);
+                        btnRestart.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                restartGame();
+                            }
+                        });
 
-                    drawDialog.show();
+                        drawDialog.show();
+                    }
                 }
 
                 tvCurrentPlaying.setText(getString(R.string.your_turn));
